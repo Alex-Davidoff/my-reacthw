@@ -1,8 +1,9 @@
 import './App.css'
+import FamilyComponent from './components/FamilyComponentf'
 
 function App() {
   return (
-    <div>Lorem ipsum dolor sit amet</div>
+    <FamilyComponent/>
   )
 }
 

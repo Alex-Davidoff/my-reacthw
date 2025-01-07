@@ -4,7 +4,7 @@ import './FamilyComponentf.css';
 
 function FamilyComponent(){
     return (
-        <div className="flex-initial flex-wrap justify-center gap-0.5 outline-yellow-50">
+        <div className="c_family flex flex-auto flex-wrap justify-center gap-6">
         {
             simpsons.map((value,index) => 
             <CharacterComponent key={index+1} item={value}>

@@ -1,8 +1,11 @@
 import './App.css'
+import { TodoComponents } from './components/TodoComponents/TodoComponents'
 
 function App() {
   return (
-    <div>Lorem ipsum dolor sit amet</div>
+    <>
+       <TodoComponents/>
+    </>
   )
 }
 

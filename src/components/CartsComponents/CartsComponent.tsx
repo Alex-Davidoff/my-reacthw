@@ -7,12 +7,13 @@ import { CartComponent } from "./CartComponent";
 export const CartsComponent = () => {
     const {id} = useParams();
     const [carts, setCarts] = useState<ICart[]>([]);
-
+    if (id) {
     useEffect(() => 
         {
         GetCarts(id).then(({carts}) => setCarts(carts));
         }
     ,[id]);
+    }
 
     return (
         <div>

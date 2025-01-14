@@ -8,9 +8,14 @@ interface IPaginationParams{
 export const PaginationComponent = ({ucount, utotal}:IPaginationParams) => {
     const [searchParams, setSearchParams] = useSearchParams({skip:'0', limit: '30'});
     const skip:number = Number(searchParams.get('skip') || '0');
-    const limit:number = Number(searchParams.get('limit') || '30');
+    let limit:number = Number(searchParams.get('limit') || '30');
+    const handleSelectOnChange = (event) => {
+        limit = Number(event.target.value);
+        setSearchParams({skip: (skip).toString(), limit: (limit).toString()});
+    }
+
     return(
-        <div className="pag_panel flex items-center">
+        <div className="pag_panel flex items-center gap-4">
             <button onClick={() => {
                 if (skip>=limit) {
                     setSearchParams({skip: (skip-limit).toString(), limit: (limit).toString()});
@@ -28,6 +33,12 @@ export const PaginationComponent = ({ucount, utotal}:IPaginationParams) => {
             >Next</button>
 
             <h2>{skip+1} - {skip+ucount} / {utotal}</h2>
+
+            <select onChange={handleSelectOnChange}>
+                <option defaultValue="30">30</option>
+                <option value="20">20</option>
+                <option value="10">10</option>
+            </select>
         </div>
     )
 }

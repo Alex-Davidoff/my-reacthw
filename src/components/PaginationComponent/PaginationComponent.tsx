@@ -10,7 +10,7 @@ export const PaginationComponent = ({ucount, utotal}:IPaginationParams) => {
     const skip:number = Number(searchParams.get('skip') || '0');
     const limit:number = Number(searchParams.get('limit') || '30');
     return(
-        <div className="pag_panel">
+        <div className="pag_panel flex items-center">
             <button onClick={() => {
                 if (skip>=limit) {
                     setSearchParams({skip: (skip-limit).toString(), limit: (limit).toString()});

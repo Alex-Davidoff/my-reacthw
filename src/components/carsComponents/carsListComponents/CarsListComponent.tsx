@@ -12,6 +12,7 @@ export const CarsListComponent = () => {
 
     return(
         <div className="cars_list_component">
+        <p>Quantity: {cars.length}</p>
             {
                 cars.map((car) => <CarComponent key={car.id} car={car}/>)
             }

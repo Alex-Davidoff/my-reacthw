@@ -8,9 +8,8 @@ export const CarCreateComponent = () => {
     const {handleSubmit, register, formState: {errors}} 
         = useForm<IFormProps>({mode: 'all', resolver: joiResolver(carValidator)});
 
-    const customHandler = (formDataProps: IFormProps) => {
-        addCar(formDataProps); 
-             
+    const customHandler = async (formDataProps: IFormProps) => {
+        await addCar(formDataProps);
     }
 
     return(

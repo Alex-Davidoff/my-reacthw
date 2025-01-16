@@ -10,6 +10,6 @@ export const getCars = async (): Promise<ICar[]> => {
     return data;
 }
 
-export const addCar = async (car: IFormProps) => {
+export const addCar = async (car: IFormProps): Promise<void> => {
     await axiosInstance.post('/cars', car);
 }

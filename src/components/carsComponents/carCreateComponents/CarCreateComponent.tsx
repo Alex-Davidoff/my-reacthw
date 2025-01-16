@@ -1,19 +1,16 @@
 import { joiResolver } from "@hookform/resolvers/joi";
 import { useForm } from "react-hook-form"
 import { carValidator } from "../../../validators/car.validator";
-
-interface IFormProps{
-    brand: string,
-    price: number,
-    year: number
-}
+import { addCar } from "../../../services/cars.api.service";
+import { IFormProps } from "../../../models/ICar";
 
 export const CarCreateComponent = () => {
-    const {handleSubmit, register, formState: {errors, isValid}} 
+    const {handleSubmit, register, formState: {errors}} 
         = useForm<IFormProps>({mode: 'all', resolver: joiResolver(carValidator)});
 
     const customHandler = (formDataProps: IFormProps) => {
-        console.log(formDataProps);        
+        addCar(formDataProps); 
+             
     }
 
     return(

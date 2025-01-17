@@ -1,3 +1,9 @@
+import { LoginComponent } from "../components/LoginComponent/LoginComponent";
+
 export const LoginPage = () => {
-    return null;
+    return (
+        <div className="page_login">
+            <LoginComponent/>
+        </div>
+    );
 }

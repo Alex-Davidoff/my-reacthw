@@ -1,3 +1,5 @@
 export const PostsPage = () => {
-    return null;
+    return (
+        <>PostsPage</>
+    );
 }

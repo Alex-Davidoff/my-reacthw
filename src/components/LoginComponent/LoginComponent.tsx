@@ -14,7 +14,8 @@ export const LoginComponent = () => {
 
        const customHandler = async (formDataProps: IUserLoginPass): Promise<void> => {
           await userLogin(formDataProps)
-          .then(({data}) => localStorage.setItem('dummy_user', JSON.stringify(data)))
+          .then(({data: {accessToken}, data: {refreshToken}}) => 
+            localStorage.setItem('dummy_user', JSON.stringify({accessToken, refreshToken})))
           .then(() => goToUrl());
        }
 

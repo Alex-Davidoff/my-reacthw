@@ -6,20 +6,17 @@ import { userLogin } from "../../services/dummy.api.service";
 import { useNavigate } from "react-router";
 
 export const LoginComponent = () => {
-
+    const navigate = useNavigate();
+    const goToUser = () => { navigate('/auth/user') };
     const {handleSubmit, register, formState: {errors}} = 
        useForm<IUserLoginPass>({mode: 'all', resolver: joiResolver(userValidator)});
-       const navigate = useNavigate();
-       const goToUrl = () => { navigate('/auth/user') };
 
        const customHandler = async (formDataProps: IUserLoginPass): Promise<void> => {
-          await userLogin(formDataProps)
-          .then(({data: {accessToken}, data: {refreshToken}}) =>{
-            localStorage.setItem('aT', accessToken)
-            localStorage.setItem('rT', refreshToken)
+          await userLogin(formDataProps).then((response) => {
+            if (response) {
+                goToUser();
             }
-        )
-          .then(() => goToUrl());
+          });
        }
 
     return(

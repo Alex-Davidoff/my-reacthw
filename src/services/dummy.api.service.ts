@@ -18,12 +18,20 @@ export const userLogin = async ({username, password}: IUserLoginPass) => {
         password: password,
         expiresInMins : import.meta.env.VITE_TOKEN_LIFETIME
         }
-    const loginAnswer =  await axiosInstance.post('/login', userProps);
-    return loginAnswer;
+    try {
+        const {data} =  await axiosInstance.post('/login', userProps);
+        if (data) {
+            localStorage.setItem('aT', data.accessToken);
+            localStorage.setItem('rT', data.refreshToken);
+            return data.id;
+        }
+    } catch {
+        localStorage.clear();
+        return false;
+    }
 }
 
 export const getCurrentUser = async () => {
     const {data} = await axiosInstance.get('/me');
-    console.log(data);
     return data;
 }

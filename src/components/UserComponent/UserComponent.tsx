@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { IUser } from "../../models/IUserProps";
-import { getCurrentUser } from "../../services/dummy.api.service";
+import { getApiData } from "../../services/dummy.api.service";
 
 export const UserComponent = () => {
     const [currentUser, setCurrentUser] = useState<IUser>();
     
     useEffect(() => {
-        getCurrentUser().then((response) => setCurrentUser(response))
+        getApiData('/me').then((response) => setCurrentUser(response))
     },[]);
 
     return(

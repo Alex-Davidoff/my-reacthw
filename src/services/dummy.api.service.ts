@@ -36,7 +36,11 @@ export const userLogin = async ({username, password}: IUserLoginPass) => {
     }
 }
 
-export const getCurrentUser = async () => {
-    const {data} = await axiosInstance.get('/me');
+const renewTokens = async () => {
+    const renewProps
+}
+
+export const getApiData = async (resource: string) => {
+    const {data} = await axiosInstance.get(resource);
     return data;
 }

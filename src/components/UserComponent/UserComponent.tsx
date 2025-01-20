@@ -11,10 +11,11 @@ export const UserComponent = () => {
 
     return(
         <div>
-            <p>{currentUser?.id}</p>
+            <p>id = {currentUser?.id}</p>
             <h2>{currentUser?.firstName} {currentUser?.lastName}</h2>
             <h3>{currentUser?.username} {currentUser?.email}</h3>
-            <button className="border border-black rounded w-24">Posts of user</button>
+            <button onClick={() => {
+            }} className="border border-black rounded w-24">Posts of user</button>
         </div>
     );
 }

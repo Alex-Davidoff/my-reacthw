@@ -1,5 +1,9 @@
 import axios from "axios"
-import { IUserLoginPass, IUserLoginPassExp } from "../models/IUserLoginProps"
+import { IUserLoginPass, IUserLoginPassExp, IUserLoginResponse } from "../models/IUserLoginProps"
+
+interface ILoginResponse {
+    data: IUserLoginResponse
+}
 
 const axiosInstance = axios.create({
     baseURL: `${import.meta.env.VITE_API_URL}/auth`
@@ -19,10 +23,11 @@ export const userLogin = async ({username, password}: IUserLoginPass) => {
         expiresInMins : import.meta.env.VITE_TOKEN_LIFETIME
         }
     try {
-        const {data} =  await axiosInstance.post('/login', userProps);
+        const {data}:ILoginResponse =  await axiosInstance.post('/login', userProps);
         if (data) {
             localStorage.setItem('aT', data.accessToken);
             localStorage.setItem('rT', data.refreshToken);
+            localStorage.setItem('userId', (data.id).toString());
             return data.id;
         }
     } catch {

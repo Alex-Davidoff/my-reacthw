@@ -4,9 +4,9 @@ import { getCurrentUser } from "../../services/dummy.api.service";
 
 export const UserComponent = () => {
     const [currentUser, setCurrentUser] = useState<IUser>();
-
+    
     useEffect(() => {
-        getCurrentUser().then((response) => setCurrentUser(response));
+        getCurrentUser().then((response) => setCurrentUser(response))
     },[]);
 
     return(

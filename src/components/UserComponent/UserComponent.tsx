@@ -6,7 +6,8 @@ import { useNavigate } from "react-router";
 export const UserComponent = () => {
     const [currentUser, setCurrentUser] = useState<IUser>();
     const navigate = useNavigate();
-    const goToLogin = () => { navigate('/login') };    
+    const goToLogin = () => { navigate('/login') }; 
+    const goToPosts = () => { navigate('/auth/posts') };   
     useEffect(() => {
         getApiData('/me').then((response) => {
             if (response) {
@@ -23,6 +24,7 @@ export const UserComponent = () => {
             <h2>{currentUser?.firstName} {currentUser?.lastName}</h2>
             <h3>{currentUser?.username} {currentUser?.email}</h3>
             <button onClick={() => {
+                goToPosts()
             }} className="border border-black rounded w-24">Posts of user</button>
         </div>
     );

@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
 import { IUser } from "../../models/IUserProps";
 import { getApiData } from "../../services/dummy.api.service";
+import { useNavigate } from "react-router";
 
 export const UserComponent = () => {
     const [currentUser, setCurrentUser] = useState<IUser>();
-    
+    const navigate = useNavigate();
+    const goToLogin = () => { navigate('/login') };    
     useEffect(() => {
-        getApiData('/me').then((response) => setCurrentUser(response))
+        getApiData('/me').then((response) => {
+            if (response) {
+                setCurrentUser(response)
+            } else {
+                goToLogin()
+            }
+        })
     },[]);
 
     return(

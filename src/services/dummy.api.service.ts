@@ -69,7 +69,8 @@ export const getApiData = async (resource: string) => {
         if (renewResponse) {console.log('new response good')};
         return renewResponse.data;
         } catch (e2) {
-            console.log('renew error', e2);            
+            console.log('renew error', e2); 
+            return null;           
         }
     }
 }

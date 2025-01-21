@@ -20,7 +20,7 @@ axiosInstance.interceptors.request.use((requestObj) => {
     return requestObj;
 });
 
-export const userLogin = async ({username, password}: IUserLoginPass) => {
+export const userLogin = async ({username, password}: IUserLoginPass): Promise<number | void> => {
     const userProps: IUserLoginPassExp = {
         username: username,
         password: password,
@@ -36,11 +36,10 @@ export const userLogin = async ({username, password}: IUserLoginPass) => {
         }
     } catch {
         localStorage.clear();
-        return false;
     }
 }
 
-export const renewTokens = async () => {
+export const renewTokens = async (): Promise<string | void> => {
     const renewProps: IRenewTokenProps = {
         refreshToken: localStorage.getItem('rT'),
         expiresInMins : import.meta.env.VITE_TOKEN_LIFETIME

@@ -8,7 +8,6 @@ export const PostsComponent = () => {
     const [posts, setPosts] = useState<IPost[]>();
     const navigate = useNavigate();
     const goToLogin = () => { navigate('/login') }; 
-    console.log(posts)
     useEffect(() => {
         getApiData(`/users/${localStorage.getItem('userId')}/posts`)
         .then((response) => {

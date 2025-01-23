@@ -1,8 +1,9 @@
 import './App.css'
+import { UsersComponent } from './components/Users/UsersComponent'
 
 function App() {
   return (
-    <div>Lorem ipsum dolor sit amet</div>
+    <UsersComponent/>
   )
 }
 

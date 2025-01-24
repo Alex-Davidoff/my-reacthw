@@ -1,9 +1,11 @@
 import './App.css'
 
 function App() {
-  return (
-    <div>Lorem ipsum dolor sit amet</div>
-  )
+   return (
+      <div>
+         
+      </div>
+   )
 }
 
 export default App

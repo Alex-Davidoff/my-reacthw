@@ -1,8 +1,14 @@
 import './App.css'
+import { UsersComponent } from './components/users/UsersComponent'
+
 
 function App() {
+  console.log('App');
+  
   return (
-    <div>Lorem ipsum dolor sit amet</div>
+    <div className='App'>
+      <UsersComponent/>
+    </div>
   )
 }
 

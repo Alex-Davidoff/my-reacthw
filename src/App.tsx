@@ -5,7 +5,7 @@ import { CComponents } from './components/branchC/CComponents'
 
 function App ()  {
    return (
-      <div>
+      <div className="App">
          <AComponents/>
          <BComponents/>
          <CComponents/>

@@ -1,9 +1,9 @@
 import { CCAComponent } from "./branchCCA/CCAComponent"
 import { CCBComponent } from "./branchCCB/CCBComponent"
 
-export const CCComponent = () => {
+export const CCComponents = () => {
     return(
-        <div>
+        <div className="brCC">
             <CCAComponent/>
             <CCBComponent/>
         </div>

@@ -1,12 +1,13 @@
 import { CAComponent } from "./branchCA/CAComponent"
 import { CBComponent } from "./branchCB/CBComponent"
+import { CCComponents } from "./branchCC/CCComponent"
 
 export const CComponents = () => {
     return(
-        <div>
+        <div className="brC">
             <CAComponent/>
             <CBComponent/>
-            <CComponents/>
+            <CCComponents/>
         </div>
     )
 }

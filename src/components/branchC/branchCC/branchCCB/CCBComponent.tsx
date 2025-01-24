@@ -1,7 +1,7 @@
 export const CCBComponent = () => {
     return(
         <div>
-        CCB content
+            CCB content
         </div>
     )
 }

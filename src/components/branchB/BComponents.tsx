@@ -3,7 +3,7 @@ import { BBComponent } from "./branchBB/BBComponent"
 
 export const BComponents = () => {
     return(
-        <div>
+        <div className="brB">
             <BAComponent/>
             <BBComponent/>
         </div>

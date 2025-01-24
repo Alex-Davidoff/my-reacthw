@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-export const UsersMenuComponent = memo(() => {   //memo запобігає ререндеру компонента при оновленні і ререндері батьківського компонента
+export const UsersMenuComponent = memo(() => {   //memo запобігає ререндеру компонента при ререндері батьківського компонента
     console.log('UsersMenu');
     return(
         <div className="UsersMenu">

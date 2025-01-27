@@ -9,7 +9,7 @@ export const UsersComponent = () => {
 
     const [count, setCount] = useState(0);
 
-    const increment = useCallback(() => {
+    const increment = useCallback(() => {           ///використовуємо useCallback для кешування функції 
       setCount(prevCount => prevCount + 1);
     }, []);
 

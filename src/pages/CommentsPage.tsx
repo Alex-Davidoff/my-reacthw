@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useMainDispatch, useMainSelector } from "../redux/store";
 import { commentActions } from "../redux/slices/CommentSlice";
+import CommentsComponent from "../components/Comments/CommentsComponent/CommentsComponent";
 
 export const CommentsPage = () => {
     const dispatch = useMainDispatch();
@@ -12,11 +13,7 @@ export const CommentsPage = () => {
 
     return (
         <div>
-        {comments.map((comment) => (
-            <div key={comment.id}>
-                {comment.body}
-            </div>
-        ))}
+            <CommentsComponent comments={comments}/>
         </div>
     )
 }

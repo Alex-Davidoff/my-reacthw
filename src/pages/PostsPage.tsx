@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useMainDispatch, useMainSelector } from "../redux/store";
 import { postActions } from "../redux/slices/PostSlice";
+import PostsComponent from "../components/Posts/PostsComponent/PostsComponent";
 
 export const PostsPage = () => {
     const dispatch = useMainDispatch();
@@ -12,11 +13,7 @@ export const PostsPage = () => {
 
     return (
         <div>
-        {posts.map((post) => (
-            <div key={post.id}>
-                {post.title}
-            </div>
-        ))}
+            <PostsComponent posts={posts}/>
         </div>
     )
 }

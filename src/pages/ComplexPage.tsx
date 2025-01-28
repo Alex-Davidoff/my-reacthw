@@ -3,6 +3,9 @@ import { useMainDispatch, useMainSelector } from "../redux/store";
 import { userActions } from "../redux/slices/UserSlice";
 import { postActions } from "../redux/slices/PostSlice";
 import { commentActions } from "../redux/slices/CommentSlice";
+import UsersComponent from "../components/Users/UsersComponent/UsersComponent";
+import PostsComponent from "../components/Posts/PostsComponent/PostsComponent";
+import CommentsComponent from "../components/Comments/CommentsComponent/CommentsComponent";
 
 export const ComplexPage = () => {
     const dispatch = useMainDispatch();
@@ -22,7 +25,9 @@ export const ComplexPage = () => {
 
     return (
         <div>
-        
+        <UsersComponent users={users}/>
+        <PostsComponent posts={posts}/>
+        <CommentsComponent comments={comments}/>
         </div>
     )
 }

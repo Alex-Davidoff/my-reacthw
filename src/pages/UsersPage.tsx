@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useMainDispatch, useMainSelector } from "../redux/store"
 import { userActions } from "../redux/slices/UserSlice";
+import UsersComponent from "../components/Users/UsersComponent/UsersComponent";
 
 export const UsersPage = () => {
     const dispatch = useMainDispatch();
@@ -12,11 +13,7 @@ export const UsersPage = () => {
 
     return (
         <div>
-        {users.map((user) => (
-            <div key={user.id}>
-                {user.name}
-            </div>
-        ))}
+            <UsersComponent users={users}/>
         </div>
     )
 }

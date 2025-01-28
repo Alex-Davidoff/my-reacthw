@@ -1,44 +1,8 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
-import { IUser } from "../models/IUser";
-import { IPost } from "../models/IPost";
-import { IComment } from "../models/IComment";
-
-type UserSliceType = {
-    users: IUser[];
-}
-
-type PostSliceType = {
-    posts: IPost[];
-}
-
-type CommentSliceType = {
-    comments: IComment[];
-}
-
-const initUserSliceState: UserSliceType = {users: []}
-const initPostSliceState: PostSliceType = {posts: []}
-const initCommentSliceState: CommentSliceType = {comments: []}
-
-const userSlice = createSlice({
-    name: 'userSlice',
-    initialState: initUserSliceState,
-    reducers: {},
-    extraReducers: builder => builder
-})
-
-const postSlice = createSlice({
-    name: 'postSlice',
-    initialState: initPostSliceState,
-    reducers: {},
-    extraReducers: builder => builder
-})
-
-const commentSlice = createSlice({
-    name: 'commentSlice',
-    initialState: initCommentSliceState,
-    reducers: {},
-    extraReducers: builder => builder
-})
+import { configureStore } from "@reduxjs/toolkit";
+import { userSlice } from "./slices/UserSlice";
+import { postSlice } from "./slices/PostSlice";
+import { commentSlice } from "./slices/CommentSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export const store = configureStore({
     reducer: {
@@ -47,3 +11,6 @@ export const store = configureStore({
         commentStoreSlice: commentSlice.reducer
     }
 })
+
+export const useMainDispatch = useDispatch.withTypes<typeof store.dispatch>();
+export const useMainSelector = useSelector.withTypes<ReturnType<typeof store.getState>>();
